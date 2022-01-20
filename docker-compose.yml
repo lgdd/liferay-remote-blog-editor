@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  blog-editor:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./src:/src"
+  liferay:
+    image: liferay/portal:7.4.3.8-ga8
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./liferay/files:/mnt/liferay/files"
